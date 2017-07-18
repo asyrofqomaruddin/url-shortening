@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+  no test yet
 
 * Deployment instructions
+  rake db:migrate
+  rails s 
 
-* ...
+* Testing  
+  please try url below for testing
+  http://asyrof-url.herokuapp.com to start generate
+  http://asyrof-url.herokuapp.com/{the_shortened_key} for redirect , ex: http://asyrof-url.herokuapp.com/8V1q
+  http://asyrof-url.herokuapp.com/info/{the_shortened_key} for info, , ex: http://asyrof-url.herokuapp.com/info/8V1q
+
