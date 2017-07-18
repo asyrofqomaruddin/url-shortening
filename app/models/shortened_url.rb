@@ -1,5 +1,6 @@
 class ShortenedUrl < ApplicationRecord
   before_create :generate_short_url
+  has_one :url_info
 
   def generate_short_url
   	self.shortened_link = loop do
@@ -15,6 +16,14 @@ class ShortenedUrl < ApplicationRecord
   	  result = true_link
   	end
   	result
+  end
+
+  def clicked
+  	begin
+  	  info = UrlInfo.find_or_create_by(shortened_url_id: self.id)
+  	  url_info.click_count = url_info.click_count+1
+  	  url_info.save!
+  	end
   end
 
 end

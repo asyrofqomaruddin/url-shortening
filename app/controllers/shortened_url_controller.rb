@@ -11,6 +11,9 @@ class ShortenedUrlController < ApplicationController
 
   	def redirect_url
   	  shortened_url_object = ShortenedUrl.find_by(shortened_link: params[:shortened_url])
+  	  Thread.new do
+  	  	shortened_url_object.clicked
+  	  end
   	  true_link = shortened_url_object.fixed_true_link
   	  redirect_to true_link
  	end
