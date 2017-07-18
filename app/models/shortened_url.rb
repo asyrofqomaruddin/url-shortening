@@ -26,4 +26,13 @@ class ShortenedUrl < ApplicationRecord
   	end
   end
 
+  def as_json
+  	{
+  	  id: id,
+  	  true_link: true_link,
+  	  shortened_link: shortened_link,
+  	  additional_info: url_info
+  	}
+  end
+
 end

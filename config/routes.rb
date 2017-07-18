@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get "/:shortened_url", to: "shortened_url#redirect_url"
   get '',   to: 'shortened_url#new'
   post "/generate", to: "shortened_url#create"
+
+  get '/info/:shortened_url', to: "shortened_url#url_info"
 end
