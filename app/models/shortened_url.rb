@@ -8,4 +8,13 @@ class ShortenedUrl < ApplicationRecord
     end unless shortened_link
   end
 
+  def fixed_true_link
+  	if !(true_link[0..3]=="http")
+  	  result = "//"+true_link
+  	else
+  	  result = true_link
+  	end
+  	result
+  end
+
 end

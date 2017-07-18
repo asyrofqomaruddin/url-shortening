@@ -1,0 +1,24 @@
+<% provide(:title, "Log in") %>
+<h1>Generate</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <input type='text' name ='url' id="send_url"/>
+    <p class="rq">Please input your url</p>
+    <button id="generate">Generate</button>
+    <div id="result"> </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    var generate = $("#generate")
+    generate.click(function(){
+      var url = $("#send_url").val();
+      $.post("/generate", {url: url}, function(result){
+        console.log(result)
+        $("#result").html("<%= request.base_url %>/" + result.shortened_url);
+      });
+    });    
+});
+</script>
